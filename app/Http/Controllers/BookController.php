@@ -27,18 +27,20 @@ class BookController extends Controller
         {
             $file = time() . "." . $req -> file("image") -> getClientOriginalExtension();
             $req -> file("image") -> move(public_path('/uploads'), $file);
-
-            $book = new Book();
-            $book -> title = $req -> title;
-            $book -> image = $file;
-            $book -> page = $req -> page;
-            $book -> price = $req -> price;
-            $book -> author = $req -> author;
-            $book -> description = $req -> description;
-            $book -> save();
-
-            return redirect("/");
+        }else{
+            $file = "no-image.jpg";
         }
+
+        $book = new Book();
+        $book -> title = $req -> title;
+        $book -> image = $file;
+        $book -> page = $req -> page;
+        $book -> price = $req -> price;
+        $book -> author = $req -> author;
+        $book -> description = $req -> description;
+        $book -> save();
+
+        return redirect("/");
     }
 
     public function Show($id){
@@ -54,22 +56,25 @@ class BookController extends Controller
     }
 
     public function Update(BookFormRequest $req, $id){
+        $book = Book::find($id);
+        
         if($req -> hasFile("image") && $req -> file("image") -> isValid())
         {
             $file = time() . "." . $req -> file("image") -> getClientOriginalExtension();
             $req -> file("image") -> move(public_path('/uploads'), $file);
-
-            $book = Book::find($id);
-            $book -> title = $req -> title;
-            $book -> image = $file;
-            $book -> page = $req -> page;
-            $book -> price = $req -> price;
-            $book -> author = $req -> author;
-            $book -> description = $req -> description;
-            $book -> save();
-
-            return redirect("/");
+        }else{
+            $file = $book -> image;
         }
+
+        $book -> title = $req -> title;
+        $book -> image = $file;
+        $book -> page = $req -> page;
+        $book -> price = $req -> price;
+        $book -> author = $req -> author;
+        $book -> description = $req -> description;
+        $book -> save();
+
+        return redirect("/");
     }
     
     public function Remove($id){

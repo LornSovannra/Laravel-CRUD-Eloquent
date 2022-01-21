@@ -15,7 +15,6 @@ class BookFormRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5|max:100',
-            'image' => 'required',
             'page' => 'required|min:1|max:100',
             'price' => 'required|min:1|max:100',
             'author' => 'required|min:5|max:100'
@@ -28,7 +27,6 @@ class BookFormRequest extends FormRequest
             'title.required' => "Please provide book Book Title!",
             'title.min' => "Title at least 5 character long!",
             "title.max" => "Title can't not longer than 100 character!",
-            "image.required" => "Please select one image!",
             'page.required' => "Please provide number of page!",
             'page.min' => "Page at least 5 character long!",
             "page.max" => "Page can't not longer than 100 character!",

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book Store</title>
+    <title>Book Store | {{ $book -> title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -58,7 +58,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="Description" class="form-label">Description</label>
-                    <input type="text" class="form-control" name="description" value="{{ $book->description }}">
+                    <textarea class="form-control" rows="3" name="description"></textarea>
                     @error('description')
                         <p style="color: red;">{{ $message }}</p>
                     @enderror
