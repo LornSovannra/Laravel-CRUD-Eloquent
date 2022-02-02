@@ -35,7 +35,7 @@
                                 <td><img src="uploads/{{ $book->image }}" alt="{{ $book->image }}" style="width: 100px"></td>
                                 <td>{{ $book->page }}</td>
                                 <td>{{ $book->price }}</td>
-                                <td>{{ $book->author }}</td>
+                                <td>{{ $book->author_id }}</td>
                                 <td>{{ $book->description }}</td>
                                 <td>
                                     <a href={{ route("edit", $book->id) }}>Edit</a> | 

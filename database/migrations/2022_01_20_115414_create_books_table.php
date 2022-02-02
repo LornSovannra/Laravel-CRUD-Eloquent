@@ -14,7 +14,10 @@ class CreateBooksTable extends Migration
             $table->string("image");
             $table->integer("page");
             $table->float("price");
-            $table->string("author");
+            $table->unsignedBigInteger("author_id");
+            $table->foreign("author_id")->references("id")
+                -> on("authors") -> cascadeOnDelete("cascade")
+                -> cascadeOnUpdate("cascade");
             $table->string("description") -> nullable();
         });
     }

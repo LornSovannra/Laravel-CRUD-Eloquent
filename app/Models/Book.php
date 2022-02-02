@@ -10,4 +10,7 @@ class Book extends Model
     use HasFactory;
     
     public $timestamps = false;
+    public function book(){
+        return $this->hasOne(Book::class);
+    }
 }

@@ -25,20 +25,24 @@
                         <td>{{ $book -> id }}</td>
                       </tr>
                       <tr>
-                        <td style="font-weight: bold; width: 100px">Name</td>
+                        <td style="font-weight: bold; width: 100px">Title</td>
                         <td>{{ $book -> title }}</td>
                       </tr>
                       <tr>
-                        <td style="font-weight: bold; width: 100px">Email</td>
+                        <td style="font-weight: bold; width: 100px">Page</td>
                         <td>{{ $book -> page }}</td>
                       </tr>
                       <tr>
-                        <td style="font-weight: bold; width: 100px">Address</td>
+                        <td style="font-weight: bold; width: 100px">Price</td>
                         <td>{{ $book -> price }}</td>
                       </tr>
                       <tr>
-                        <td style="font-weight: bold; width: 100px">Website</td>
-                        <td>{{ $book -> author }}</td>
+                        <td style="font-weight: bold; width: 100px">Author</td>
+                        <td>{{ $book -> author_id }}</td>
+                      </tr>
+                      <tr>
+                        <td style="font-weight: bold; width: 100px">Description</td>
+                        <td>{{ $book -> descripion }}</td>
                       </tr>
                     </tbody>
                 </table>

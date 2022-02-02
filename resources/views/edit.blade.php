@@ -49,9 +49,14 @@
                         <p style="color: red;">{{ $message }}</p>
                     @enderror
                   </div>
-                  <div class="mb-3">
+                  <div class="mb-3" style="display: flex; flex-direction: column;">
                     <label for="Author" class="form-label">Author</label>
-                    <input type="text" class="form-control" name="author" value="{{ $book->author }}">
+                    <select class="form-select" aria-label="Default select example" name="author_id">
+                      <option selected>{{ $book -> author_id }}</option>
+                      @foreach ($authors as $author)
+                        <option value="{{ $author->id }}">{{ $author->name }}</option>
+                      @endforeach
+                    </select>
                     @error('author')
                         <p style="color: red;">{{ $message }}</p>
                     @enderror

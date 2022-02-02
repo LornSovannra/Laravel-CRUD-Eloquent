@@ -36,7 +36,7 @@ class BookController extends Controller
         $book -> image = $file;
         $book -> page = $req -> page;
         $book -> price = $req -> price;
-        $book -> author = $req -> author;
+        $book -> author_id = $req -> author_id;
         $book -> description = $req -> description;
         $book -> save();
 
@@ -51,8 +51,9 @@ class BookController extends Controller
 
     public function Edit($id){
         $book = Book::findOrFail($id);
+        $authors = Author::all();
 
-        return view("edit", compact("book"));
+        return view("edit", compact("book", "authors"));
     }
 
     public function Update(BookFormRequest $req, $id){
@@ -70,7 +71,12 @@ class BookController extends Controller
         $book -> image = $file;
         $book -> page = $req -> page;
         $book -> price = $req -> price;
-        $book -> author = $req -> author;
+        if($req -> author_id == null){
+            $book_author = $book -> author_id;
+        }else{
+            $book_author = $req -> author_id;
+        }
+        $book -> author_id = $book_author;
         $book -> description = $req -> description;
         $book -> save();
 

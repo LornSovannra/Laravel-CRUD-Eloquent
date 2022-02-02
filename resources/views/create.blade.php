@@ -47,10 +47,10 @@
                   </div>
                   <div class="mb-3" style="display: flex; flex-direction: column;">
                     <label for="Author" class="form-label">Author</label>
-                    <select class="form-select" aria-label="Default select example" name="author">
+                    <select class="form-select" aria-label="Default select example" name="author_id">
                       <option selected disabled>Select Author</option>
                       @foreach ($authors as $author)
-                        <option value="{{ $author->name }}">{{ $author->name }}</option>
+                        <option value="{{ $author->id }}">{{ $author->name }}</option>
                       @endforeach
                     </select>
                     @error('author')

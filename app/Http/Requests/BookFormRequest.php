@@ -17,7 +17,7 @@ class BookFormRequest extends FormRequest
             'title' => 'required|min:5|max:100',
             'page' => 'required|min:1|max:100',
             'price' => 'required|min:1|max:100',
-            'author' => 'required|min:5|max:100'
+            'author_id' => 'required|min:1|max:100'
         ];
     }
 
@@ -33,9 +33,9 @@ class BookFormRequest extends FormRequest
             'price.required' => "Please set the price!",
             'price.min' => "Price at least 5 character long!",
             "price.max" => "Price can't not longer than 100 character!",
-            'author.required' => "Please select author!",
-            'author.min' => "Author at least 5 character long!",
-            "author.max" => "Author can't not longer than 100 character!",
+            'author_id.required' => "Please select author!",
+            'author_id.min' => "Author at least 1 character long!",
+            "author_id.max" => "Author can't not longer than 100 character!",
         ];
     }
 }
